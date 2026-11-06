@@ -1,0 +1,26 @@
+name: Linux-Practice
+
+on:
+  workflow_dispatch:
+  
+  push:
+    branches: [ main, master ]
+
+jobs:
+  show-tree:
+    name: Show-Tree
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: Install tree Command
+        run: sudo apt-get update && sudo apt-get install -y tree
+
+      - name: Show Root Folder Structure
+        run: | 
+          echo "Root Folder Structure"
+          tree
+
+
+
