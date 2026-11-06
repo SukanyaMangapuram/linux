@@ -16,11 +16,30 @@ jobs:
       
       - name: Install tree Command
         run: sudo apt-get update && sudo apt-get install -y tree
-
+   
       - name: Show Root Folder Structure
         run: | 
           echo "Root Folder Structure"
           tree
+  
+  run-scripts:
+    name: Running the Scripts
+    runs-on: ubutu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Make Scipts Excecutable
+        run: chmod +x scripts/*.sh
+
+      - name: Run System Report Script
+        run: ./scripts/system_report.sh
+      
+      - name: Run Log Parser Script
+        run: ./scripts/log_parser.sh
+
+      - name: Run File Backup Script
+        run: ./scripts/file_backup.sh
 
 
 
