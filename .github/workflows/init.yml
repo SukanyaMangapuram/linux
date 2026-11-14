@@ -50,28 +50,57 @@ jobs:
           pwd
           echo "list of created directories"
           ls -l
-
+          
+  Linux-Environmet:
+    name: Linux Enivironmennt
+    runs-on: ubuntu-latest
+    
+    steps:
       - name: Linux Environment Check
         run: |
           echo "Shows UserID and group Memebership"
-          echo "id"
-          id
+          echo "id: $(id)"
+          
 
           echo "Available Memory"
-          echo "free -h"
-          free -h
+          echo "free -h: $(free -h)"
+          
 
           echo "Disk Space"
-          echo "df -h"
-          df -h
+          echo "df -h: $(df -h)"
+          
 
           echo "Network Inteface and Ip address"
-          echo "ip addr"
-          ip addr
+          echo "ip addr: $(ip addr)"
+          
 
           echo "Machine's Hostname"
-          echo "hostname"
-          hostname
+          echo "hostname: $(hostname)"
+          
+  File-System-Navigation:
+    name: File-System-Navigation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: pwd,cd,ls
+        run: |
+          cd ~/linux-training
+          echo "pwd-Print Working Directory"
+          echo "pwd: $(pwd)"
+
+          echo "ls-List Directory Contents"
+          ls
+
+          echo "ls -l: Detailed listing"
+          ls -l
+
+          echo "ls -a: Show hidden file"
+          ls -a
+
+          echo "ls -lh Human readable file sizes"
+          ls -lh
+
+          echo "ls -ltr Detailed Listing with time of adding in reverse order"
+          ls -ltr
 
 
-        
