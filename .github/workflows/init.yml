@@ -23,3 +23,25 @@ jobs:
         run: |
           echo "Username"
           whoami
+
+  Create-Directory:
+    name: Creating Training Directories
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Creating Parent Directory        
+        run: |
+          mkdir -p ~/linux-training
+          echo "-p is to not to show error is dierctory already exists"
+          echo " ~ - root path"
+          
+      - name: Creating mosule directories
+        run: |
+          cd ~/linux-training
+          mkdir module-01
+          mkdir module-02
+          mkdir module-03
+          
+          echo "Testing"
+          pwd
+          ls -l
