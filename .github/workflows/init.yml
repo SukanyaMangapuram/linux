@@ -2,6 +2,9 @@ name: Initial Setup
 
 on:
   workflow_dispatch:
+  
+  push: 
+    bracnhes: [ main ]
 
 jobs:
   os-version:
@@ -35,7 +38,7 @@ jobs:
           echo "-p is to not to show error is dierctory already exists"
           echo " ~ - root path"
           
-      - name: Creating mosule directories
+      - name: Creating module directories
         run: |
           cd ~/linux-training
           mkdir module-01
@@ -43,5 +46,32 @@ jobs:
           mkdir module-03
           
           echo "Testing"
+          echo "path"
           pwd
+          echo "list of created directories"
           ls -l
+
+      - name: Linux Environment Check
+        run: |
+          echo "Shows UserID and group Memebership"
+          echo "id"
+          id
+
+          echo "Available Memory"
+          echo "free -h"
+          free -h
+
+          echo "Disk Space"
+          echo "df -h"
+          df -h
+
+          echo "Network Inteface and Ip address"
+          echo "ip addr"
+          ip addr
+
+          echo "Machine's Hostname"
+          echo "hostname"
+          hostname
+
+
+        
