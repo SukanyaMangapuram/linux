@@ -1,0 +1,25 @@
+name: Initial Setup
+
+on:
+  workflow_dispatch:
+
+jobs:
+  os-version:
+    name: OS Version Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Linux Operating System
+        run: |
+          echo "Runner OS"
+          cat /etc/os-release
+
+      - name: Linux Kernel Version
+        run: |
+          echo "Runner Kernel Version"
+          uname -r
+
+      - name: User Details
+        run: |
+          echo "Username"
+          whoami
